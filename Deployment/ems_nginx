@@ -3,7 +3,7 @@ upstream ems_server {
   # to return a good HTTP response (in case the Unicorn master nukes a
   # single worker for timing out).
 
-  server unix:/home/ubuntu/srv/ems/run/gunicorn.sock fail_timeout=0;
+  server unix:/srv/ems/run/gunicorn.sock fail_timeout=0;
 }
 
 server {
