@@ -1,8 +1,8 @@
 #!/bin/bash 
 
 NAME="ems"                                 # Name of the application 
-DJANGODIR=/srv/ems            # Django project directory 
-SOCKFILE=/srv/ems/run/gunicorn.sock # we will communicte using this unix socket 
+DJANGODIR=/home/ubuntu/srv/ems            # Django project directory 
+SOCKFILE=/home/ubuntu/srv/ems/run/gunicorn.sock # we will communicte using this unix socket 
 USER=ubuntu                                       # the user to run as 
 GROUP=ubuntu                                    # the group to run as 
 NUM_WORKERS=3                                    # how many worker processes should Gunicorn spawn 
