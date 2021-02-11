@@ -1,13 +1,13 @@
 #!/bin/bash 
-  
-NAME="demo"                                 # Name of the application 
-DJANGODIR=/home/hardik/projects/demo            # Django project directory 
-SOCKFILE=/home/hardik/projects/demo/run/gunicorn.sock # we will communicte using this unix socket 
-USER=hardik                                       # the user to run as 
-GROUP=hardik                                    # the group to run as 
+
+NAME="ems"                                 # Name of the application 
+DJANGODIR=/srv/ems            # Django project directory 
+SOCKFILE=/srv/ems/run/gunicorn.sock # we will communicte using this unix socket 
+USER=hari                                       # the user to run as 
+GROUP=hari                                    # the group to run as 
 NUM_WORKERS=3                                    # how many worker processes should Gunicorn spawn 
-DJANGO_SETTINGS_MODULE=demo.settings            # which settings file should Django use 
-DJANGO_WSGI_MODULE=demo.wsgi                    # WSGI module name 
+DJANGO_SETTINGS_MODULE=ems.settings            # which settings file should Django use 
+DJANGO_WSGI_MODULE=ems.wsgi                    # WSGI module name 
   
 echo "Starting $NAME as `whoami`" 
   
@@ -23,7 +23,7 @@ test -d $RUNDIR || mkdir -p $RUNDIR
   
 # Start your Django Unicorn 
 # Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon) 
-exec /home/hardik/projects/venv/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \ 
+exec /srv/venv/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \ 
  --name $NAME \ 
  --workers $NUM_WORKERS \ 
  --user=$USER --group=$GROUP \ 
